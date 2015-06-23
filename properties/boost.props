@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LibraryFolder Condition="'$(PlatformShortName)' == 'x86'">lib32</LibraryFolder>
+    <LibraryFolder Condition="'$(PlatformShortName)' == 'amd64'">lib64</LibraryFolder>
+    <LibraryFolder Condition="'$(PlatformShortName)' == 'x64'">lib64</LibraryFolder>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(BOOST_DIR);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST_DIR)\$(LibraryFolder)-msvc-$(CrtSDKReferenceVersion)\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemGroup />
+</Project>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LibraryFolder Condition="'$(PlatformShortName)' == 'x86'">lib</LibraryFolder>
+    <LibraryFolder Condition="'$(PlatformShortName)' == 'amd64'">lib64</LibraryFolder>
+    <LibraryFolder Condition="'$(PlatformShortName)' == 'x64'">lib64</LibraryFolder>
+    <ProjectNameSuffix Condition="'$(PlatformShortName)' == 'x86'">_x86</ProjectNameSuffix>
+    <ProjectNameSuffix Condition="'$(PlatformShortName)' == 'amd64'">_x64</ProjectNameSuffix>
+    <ProjectNameSuffix Condition="'$(PlatformShortName)' == 'x64'">_x64</ProjectNameSuffix>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)..\build\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\build\obj\$(Configuration)-$(PlatformShortName)\$(ProjectName)\</IntDir>
+    <IncludePath>$(ProjectDir);$(SolutionDir);$(SolutionDir)..\includes\;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)$(ProjectNameSuffix)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
